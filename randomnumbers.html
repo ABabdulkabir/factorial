@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Numbers</title>
+</head>
+<body>
+    <h1>List of Random Numbers</h1>
+    <ul id="randomNumbers">
+        <!-- Random numbers will be displayed here -->
+    </ul>
+    <h2>Premium Numbers (Numbers > 50):</h2>
+    <ul id="premiumNumbers">
+        <!-- Premium numbers will be displayed here -->
+    </ul>
+
+    <script>
+        // JavaScript code to generate random numbers and identify premium numbers
+        var maxNumbers = 10;
+        var randomNumbers = [];
+        var premiumNumbers = [];
+
+        // Generate random numbers and store them in the array
+        for (var i = 0; i < maxNumbers; i++) {
+            var randomNumber = Math.floor(Math.random() * 100); // Generates random numbers between 0 and 99
+            randomNumbers.push(randomNumber);
+
+            if (randomNumber > 50) {
+                premiumNumbers.push(randomNumber);
+            }
+        }
+
+        // Display the random numbers in an HTML list
+        var randomList = document.getElementById("randomNumbers");
+        for (var i = 0; i < randomNumbers.length; i++) {
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(randomNumbers[i]));
+            randomList.appendChild(li);
+        }
+
+        // Display the premium numbers in an HTML list
+        var premiumList = document.getElementById("premiumNumbers");
+        for (var i = 0; i < premiumNumbers.length; i++) {
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(premiumNumbers[i]));
+            premiumList.appendChild(li);
+        }
+    </script>
+</body>
+</html>
